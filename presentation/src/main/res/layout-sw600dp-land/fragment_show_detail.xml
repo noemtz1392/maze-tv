@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="show"
+            type="mx.com.android.maze.domain.model.Show" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:elevation="0dp"
+            android:focusable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="0dp"
+            app:layout_constraintDimensionRatio="H,3:2"
+            app:layout_constraintHeight_percent="0.72"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/response"
+                app:imageUrl="@{show.imageUrl}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_genres"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@{@string/text_genres(show.genres)}"
+            android:textColor="#B3000000"
+            app:layout_constraintEnd_toEndOf="@id/card_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_schedule_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:text="@{@string/text_schedule(show.schedule.time,show.schedule.days)}"
+            android:textColor="#B3000000"
+            app:layout_constraintEnd_toEndOf="@id/card_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_genres" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_view"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_show_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@{show.name}"
+                    android:textColor="#B3000000"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_network_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@{show.networkName}"
+                    android:textColor="#B3000000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_show_name"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_rating"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="@{@string/text_rating(show.rating)}"
+                    android:textColor="#B3000000"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_network_name"
+                    app:layout_constraintWidth_percent="0.4" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/action_open_website"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_rating"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_network_name"
+                    app:layout_constraintTop_toTopOf="@id/tv_network_name"
+                    app:layout_constraintWidth_percent="0.48"
+                    app:websiteLink="@{show.officialSite}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_summary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="16dp"
+                    android:textColor="#B3000000"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rating"
+                    app:renderHtml="@{@string/text_summary(show.summary)}" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_cast"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="24dp"
+                    android:text="Talentos:"
+                    android:textColor="#B3000000"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_summary" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="LinearLayoutManager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_cast"
+                    tools:listitem="@layout/item_list_person" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

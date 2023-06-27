@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="show"
+            type="mx.com.android.maze.domain.model.Show" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:focusable="true"
+        android:padding="6dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:elevation="0dp"
+            android:focusable="true"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="0dp"
+            app:layout_constraintDimensionRatio="W,4:3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.30">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/response"
+                app:imageUrl="@{show.imageUrl}" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_show_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="@{show.name}"
+            android:textColor="#B3000000"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_view"
+            app:layout_constraintTop_toTopOf="@id/card_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_network_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@{show.networkName}"
+            android:textColor="#B3000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_show_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date_and_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:text="@{@string/text_date_and_time(show.airDate,show.airTime)}"
+            android:textColor="#B3000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_network_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

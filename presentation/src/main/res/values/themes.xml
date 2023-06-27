@@ -1,0 +1,46 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.Maze" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryVariant">@color/color_primary_dark</item>
+        <item name="colorOnPrimary">@color/color_white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_accent</item>
+        <item name="colorSecondaryVariant">@color/color_accent</item>
+        <item name="colorOnSecondary">@color/color_black</item>
+
+        <!-- Customize your theme here. -->
+
+        <!-- Window decor -->
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!--<item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">
+            @bool/use_light_navigation
+        </item>-->
+        <item name="android:navigationBarColor">@color/nav_bar_scrim</item>
+    </style>
+
+    <style name="Theme.Maze.Home">
+        <item name="android:navigationBarColor">@color/color_white</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">true</item>
+    </style>
+
+    <style name="Theme.Maze.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="Theme.Maze.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+
+    <style name="Theme.AlertDialog" parent="@style/Theme.MaterialComponents.Light.Dialog">
+        <item name="colorPrimary">@color/color_accent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.68</item>
+    </style>
+
+    <style name="Theme.LoadingDialog" parent="@style/Theme.AlertDialog">
+        <item name="android:windowBackground">@null</item>
+    </style>
+</resources>

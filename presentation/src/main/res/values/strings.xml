@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="text_date_and_time">%1$s | %2$s</string>
+
+
+    <string name="text_rating">Rating: %1$s</string>
+
+    <string name="text_summary">Sinópsis:\n%1$s</string>
+    <string name="text_genres">Generos: %1$s</string>
+    <string name="text_schedule">Horario: %1$s | %2$s</string>
+
+    <string name="action_open_website">Visitar sitio</string>
+
+    <string name="action_search">Buscar</string>
+</resources>
